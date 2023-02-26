@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',  # 앱을 현재의 프로젝트에 포함시키기
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
