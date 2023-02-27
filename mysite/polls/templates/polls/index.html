@@ -1,0 +1,23 @@
+<!--
+    python코드와 뷰에서 보여지는 페이지 디자인을 분리하기 위해 Django 의 템플릿 시스템을 이용해보자
+
+    프로젝트의 템플릿 설정은 Django가 어떻게 템플릿을 불러오고 렌더링할 것인지 기술한다.
+    기본 설정 파일은 APP_DIRS 옵션이 True로 설정된 DjangoTemplates 백엔드를 구성한다.
+    그리고 관례에 따라, DjangoTemplates는 각 INSTALL_APPS 디렉토리의 "templates" 하위 디렉토리를 탐색한다.
+    polls/index.html
+    --->
+
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+            <!--
+                <li><a href="/polls/{{ question.id }}/">{{
+                question.question_text }}</a></li>
+                -->
+            <li><a href="{% url 'polls:detail' question.id %}"> {{
+                question.question_text }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

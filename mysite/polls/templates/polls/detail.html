@@ -1,0 +1,17 @@
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
+
+<!-- 
+    템플릿 시스템은 변수의 속성에 접근하기 위해 점-탐색(dot-lookup) 문법을 사용한다
+    예제의 {{ questio.question_text }} 구문을 보면, Django는 먼저 question 객체에 대한 사전형으로 탐색한다
+    탐색에 실패하게 되면 속성값으로 탐색한다. 
+    (이 예에서는 속성값에서 탐색이 완료되지만) 만약 속성 탐색에서도 실패한다면 리스트의 인덱스 탐색을 시도한다.
+
+    반복구문해서 메소드 호출이 이어난다. 
+    question.choice_set.all은 python에서 question.choice_set.all() 코드로 해석되는데, 
+    이때 반환된 Choice 객체의 반복자는 for 구문에서 사용하기 적당하다.
+-->

@@ -23,3 +23,11 @@ urlpatterns = [
     # 남은 문자열 부분을 후속 처리를 위해 include된 URLconf로 전달한다
     path('admin/', admin.site.urls),
 ]
+
+
+'''
+Django는 URL 패턴을 사용한다
+URL 의 일반적인 형식은 /newsarchive/<year>/<month>/
+URL로부터 뷰를 얻기 위해, Django는 'URLconfs'라는 것을 사용한다
+URLconf는 URL 패턴을 뷰에 연결한다.
+'''
